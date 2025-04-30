@@ -99,12 +99,13 @@ plt.plot(100, 100*a+b, '*r') # Ponto de interseção da reta com o eixo y
 # Gera 100 números aleatórios entre 40 e 100 flutuantes
 # np.random.uniform(low=40, high=100, size=100)
 
+np.random.seed(84)
 coeficientes_angulares = np.random.uniform(low=0.10, high=0.90, size=100) # Coeficientes angulares
 norma = np.array([]) # Array vazio para armazenar os valores de ajuste da reta
 
 for i in range(100):
     norma = np.append(norma, np.linalg.norm(moscow - (coeficientes_angulares[i]*x + b))) # Valor de ajuste da reta forma facil
     
-print(norma)
-    
-print (coeficientes_angulares[1])
+dados = np.column_stack([coeficientes_angulares, norma]) # Cria um array com os coeficientes angulares e os valores de ajuste da reta
+
+np.savetxt('dados.csv', dados, delimiter=',') # Salva o array em um arquivo .npy
