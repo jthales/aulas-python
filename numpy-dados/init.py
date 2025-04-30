@@ -93,4 +93,18 @@ plt.plot(x, y)
 plt.plot(41.5, 41.5*a+b, '*r') # Ponto de interseção da reta com o eixo y
 plt.plot(100, 100*a+b, '*r') # Ponto de interseção da reta com o eixo y
 
-plt.show()
+# Gera 100 números aleatórios entre 40 e 100
+# np.random.randint(low=40, high=100, size=100) 
+
+# Gera 100 números aleatórios entre 40 e 100 flutuantes
+# np.random.uniform(low=40, high=100, size=100)
+
+coeficientes_angulares = np.random.uniform(low=0.10, high=0.90, size=100) # Coeficientes angulares
+norma = np.array([]) # Array vazio para armazenar os valores de ajuste da reta
+
+for i in range(100):
+    norma = np.append(norma, np.linalg.norm(moscow - (coeficientes_angulares[i]*x + b))) # Valor de ajuste da reta forma facil
+    
+print(norma)
+    
+print (coeficientes_angulares[1])
